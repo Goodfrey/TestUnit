@@ -32,6 +32,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::group(['prefix'  =>  '/admin', 'middleware' => 'auth'], function()
 {
     Route::get('/',                     [AdminController::class, 'view'])->name('/');
+    Route::get('/invoices',             [AdminController::class, 'invoices'])->name('/invoices');
     Route::get('/view/{id}',            [AdminController::class, 'identified'])->name('/view/{id}');
 });
 

@@ -20,11 +20,13 @@ return new class extends Migration
             $table->double('price', 10,2)->default(0.00);
             $table->double('import', 10,2)->default(0.00);
             $table->double('total', 10,2)->default(0.00);
+            $table->integer("status_id")->nullable();
             $table->integer("user_id")->nullable();
             $table->timestamps();
 
             $table->foreign('identified')->references('identified')->on('shoppings');
             $table->foreign('shopping_id')->references('id')->on('shoppings');
+            $table->foreign('status_id')->references('id')->on('statuses');
             $table->foreign('user_id')->references('id')->on('users');
 
             $table->index(['created_at']);
