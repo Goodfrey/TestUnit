@@ -1,7 +1,5 @@
 # Sistema de Facturacion.
 
-Proyecto de Facturacion - CRM (https://github.com/Goodfrey/SilexSmart).
-
 Sistema disenado bajo las especificaciones enviadas por https://www.poderjudicialvirtual.com/
 
 Basado en Laravel Version 9 y PHP 8.
