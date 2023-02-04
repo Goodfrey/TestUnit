@@ -21,13 +21,13 @@ class UserSeeder extends Seeder
 
         $data[0]   = [
             'name'      =>  ucfirst('Administrator'),
-            'email'     =>  strtolower('admin@boomsolutions.com'),
+            'email'     =>  strtolower('admin@gmail.com'),
             'password'  =>  bcrypt('12345'),
             'type'      =>  $tyA,
         ];
         $data[1]   = [
-            'name'      =>  ucfirst('Luis campos'),
-            'email'     =>  strtolower('luis.924@boomsolutions.com'),
+            'name'      =>  ucfirst('Cliente de Prueba'),
+            'email'     =>  strtolower('cliente@gmail.com'),
             'password'  =>  bcrypt('12345'),
             'type'      =>  $tyC,
         ];

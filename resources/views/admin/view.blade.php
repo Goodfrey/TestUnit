@@ -21,37 +21,38 @@
                         <table class="table">
                             <tr>
                                 <th class="text-center">#</th>
+                                <th class="text-center">Fecha</th>
                                 <th class="text-center">Producto</th>
                                 <th class="text-center">Precio</th>
                                 <th class="text-center">Impuesto</th>
-                                <th class="text-center">Fecha</th>
                             </tr>
                             <tbody>
-                                <tr class="text-center">
-                                    <td>1</td>
-                                    <td>Producto 1</td>
-                                    <td>10.00</td>
-                                    <td>2.50</td>
-                                    <td>2023-02-03</td>
-                                </tr>
-                                <tr class="text-center">
-                                    <td>1</td>
-                                    <td>Producto 1</td>
-                                    <td>10.00</td>
-                                    <td>2.50</td>
-                                    <td>2023-02-03</td>
-                                </tr>
+                                @php $imp=0; $sub=0; $total=0 @endphp
+                                @foreach ($data as $in)
+                                    <tr class="text-center">
+                                        <td>{{ $in->id }}</td>
+                                        <td>{{ $in->date}}</td>
+                                        <td>{{ $in->name}}</td>
+                                        <td>{{ $in->sub}}</td>
+                                        <td>{{ $in->imp}}</td>
+                                        @php
+                                            $imp += $in->imp;
+                                            $sub += $in->sub;
+                                            $total += ($in->imp + $in->sub);
+                                        @endphp 
+                                    </tr>
+                                @endforeach
                                 <tr class="text-center">
                                     <td colspan="4" style="text-align: right;"><strong>Subtotal</strong></td>
-                                    <td>20.00</td>
+                                    <td>{{ $sub }}</td>
                                 </tr>
                                 <tr class="text-center">
                                     <td colspan="4" style="text-align: right;"><strong>Import</strong></td>
-                                    <td>5.00</td>
+                                    <td>{{ $imp }}</td>
                                 </tr>
                                 <tr class="text-center">
                                     <td colspan="4" style="text-align: right;"><strong>Total</strong></td>
-                                    <td>25.00</td>
+                                    <td>{{ $total }}</td>
                                 </tr>
                             </tbody>
                         </table>

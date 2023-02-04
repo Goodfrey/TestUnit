@@ -34,28 +34,17 @@
                                     </ul>
                                 </thead>
                                 <tbody>
-                                <tr>
-                                    <th class="text-center" scope="row">1</th>
-                                    <td><ul class="list-group text-center"><li class="list-group-item">123</li></ul></td>
-                                    <td><ul class="list-group text-center"><li class="list-group-item">Luis Campos</li></ul></td>
-                                    <td><ul class="list-group text-center"><li class="list-group-item">Procesado</li></ul></td>
-                                    <td><div class="d-grid gap-2"><a class="btn btn-primary" onclick="viewInfo(123);" type="button">View</a></div></td>
-                                </tr>
-                                <tr>
-                                    <th class="text-center" scope="row">2</th>
-                                    <td><ul class="list-group text-center"><li class="list-group-item">456</li></ul></td>
-                                    <td><ul class="list-group text-center"><li class="list-group-item">Luis Campos</li></ul></td>
-                                    <td><ul class="list-group text-center"><li class="list-group-item">Procesado</li></ul></td>
-                                    <td><div class="d-grid gap-2"><a class="btn btn-primary" onclick="viewInfo(456);" type="button">View</a></div></td>
-                                </tr>
-                                <tr>
-                                    <th class="text-center" scope="row">3</th>
-                                    <td><ul class="list-group text-center"><li class="list-group-item">789</li></ul></td>
-                                    <td><ul class="list-group text-center"><li class="list-group-item">Luis Campos</li></ul></td>
-                                    <td><ul class="list-group text-center"><li class="list-group-item">Procesado</li></ul></td>
-                                    <td><div class="d-grid gap-2"><a class="btn btn-primary" onclick="viewInfo(789);" type="button">View</a></div></td>
-                                </tr>
-                                </tr>
+
+                                    @foreach ($invoices as $in)
+                                        <tr>
+                                            <th class="text-center" scope="row">{{ $in->id }}</th>
+                                            <td><ul class="list-group text-center"><li class="list-group-item">{{ $in->identified }}</li></ul></td>
+                                            <td><ul class="list-group text-center"><li class="list-group-item">{{ $in->shopping->user->name }}</li></ul></td>
+                                            <td><ul class="list-group text-center"><li class="list-group-item">{{ $in->shopping->status->name }}</li></ul></td>
+                                            <td><div class="d-grid gap-2"><a class="btn btn-primary" onclick="viewInfo({{ $in->identified }});" type="button">View</a></div></td>
+                                        </tr>
+                                    @endforeach
+
                                 </tbody>
                             </table>
                         </div>
